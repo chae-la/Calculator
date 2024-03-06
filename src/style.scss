@@ -1,5 +1,36 @@
+$primary-color: #333;
+$secondary-color: white;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: darkgray;
+}
+
+.article{
+  background-color: $primary-color;
+  height: 25rem;
+  width: 15rem;
+  margin: 45px;
+  z-index: 2;
+  padding: 25px;
+  border-radius: 28px;
+    &__screen{
+      background-color: $secondary-color;
+      height: 5rem;
+      width: 12rem;
+      z-index: 1;
+      border-radius: 10px;;
+    }
+    &__container{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      gap: 15px;
+      background-color: $primary-color;
+      margin-top: 40px;
+    }
+
+  
 }
