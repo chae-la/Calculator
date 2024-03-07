@@ -1,27 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="./src/style.scss">
+    <link rel="stylesheet" href="./src/style.scss" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
   </head>
   <body>
     <article class="article">
-      <div class="article__screen">
-
-      </div>
+      <div class="article__screen">PLACEHOLDER</div>
 
       <div class="article__vessel">
         <button class="article__button article__button--sqrt">√</button>
-
+        <button class="article__button article__button--square">^2 </button>
+        <button class="article__button article__button--open">(</button>
+        <button class="article__button article__button--close">)</button>
+        <button class="article__button article__button--percent">%</button>
       </div>
 
       <div class="article__container">
         <button class="article__button article__button--clear">C</button>
         <button class="article__button article__button--convert">⇋</button>
-        <button class="article__button article__button--percent">%</button>
+        <button class="article__button article__button--delete">DEL</button>
         <button class="article__button article__button--one">÷</button>
         <button class="article__button article__button--seven">7</button>
         <button class="article__button article__button--eight">8</button>
@@ -40,12 +41,9 @@
         <button class="article__button article__button--ans">Ans</button>
         <button class="article__button article__button--equal">=</button>
       </div>
-      
     </article>
 
-
-
-    <div id="app"></div>
+  
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

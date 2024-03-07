@@ -5,7 +5,7 @@ $secondary-color: white;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: darkgray;
+  background-color: black;
 }
 
 .article{
@@ -23,6 +23,13 @@ $secondary-color: white;
       z-index: 1;
       border-radius: 10px;;
     }
+    &__vessel{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      margin-top: 35px;
+      gap: 10px;
+      background-color: $primary-color;
+    }
     &__container{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -30,7 +37,48 @@ $secondary-color: white;
       gap: 15px;
       background-color: $primary-color;
       margin-top: 40px;
+        
     }
+    &__button {
+          background-color: $secondary-color;
+          border-radius: 4px;
+          padding: 1px 3px;
+          border: none;
+            &--decimal{
+              font-size: large;
+              font-weight: bolder;
+            }
+        }
+  
+}
 
+@media screen and (min-width: 768px) {
+  .article {
+    width: 30rem;
+    height: 35rem;
+    padding: 35px;
+      &__screen {
+        width: 25.5rem;
+        height: 7rem;
+      }
+      &__vessel {
+        gap: 30px;
+      }
+      &__container{
+        gap: 30px;
+      }
+      &__button{
+        padding: 3px 4px;
+        font-size: 1.2rem;
+      }
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .article__button:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+  }
   
 }
