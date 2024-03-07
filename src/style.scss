@@ -1,11 +1,33 @@
 $primary-color: #333;
 $secondary-color: white;
+$tertiary-color: black;
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
+  background-color: $tertiary-color;
+}
+
+.aside{
+  margin: 45px;
+  display: flex;
+  justify-content: space-evenly;
+  &__button{
+    border: none;
+    padding: 2px 7px;
+    font-size: 0.8rem;
+      &--light{
+            background-color: $secondary-color;
+            
+          }
+          &--fun{
+            background-color: #eaea66;
+            // add imported fun font family.
+          }
+  }
+    
 }
 
 .article{
@@ -53,6 +75,17 @@ $secondary-color: white;
 }
 
 @media screen and (min-width: 768px) {
+  
+  .aside{
+    max-width: 28rem;
+    margin: 60px;
+    justify-content:space-between;
+      &__button{
+        padding: 7px 13px;
+        font-size: 1.2rem;
+      }
+  }
+  
   .article {
     width: 30rem;
     height: 35rem;
@@ -75,9 +108,14 @@ $secondary-color: white;
 }
 
 @media screen and (min-width:1024px) {
+  .aside__button:hover{
+    font-size: 1.5rem;
+    transition: 0.5s;
+  //  add some fun colors when you hover over the fun button
+  }
   .article__button:hover{
-    background-color: black;
-    color: white;
+    background-color: $tertiary-color;
+    color: $secondary-color;
     transition: 0.3s;
   }
   
