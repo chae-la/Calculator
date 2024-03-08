@@ -2,7 +2,6 @@ $primary-color: #333;
 $secondary-color: white;
 $tertiary-color: black;
 
-
 * {
   margin: 0;
   padding: 0;
@@ -10,27 +9,26 @@ $tertiary-color: black;
   background-color: $tertiary-color;
 }
 
-.aside{
+
+.aside {
   margin: 45px;
   display: flex;
   justify-content: space-evenly;
-  &__button{
+  &__button {
     border: none;
     padding: 2px 7px;
     font-size: 0.8rem;
-      &--light{
-            background-color: $secondary-color;
-            
-          }
-          &--fun{
-            background-color: #eaea66;
-            // add imported fun font family.
-          }
+    &--light {
+      background-color: $secondary-color;
+    }
+    &--fun {
+      background-color: #eaea66;
+      // add imported fun font family.
+    }
   }
-    
 }
 
-.article{
+.article {
   background-color: $primary-color;
   height: 25rem;
   width: 15rem;
@@ -38,85 +36,99 @@ $tertiary-color: black;
   z-index: 2;
   padding: 25px;
   border-radius: 28px;
-    &__screen{
-      background-color: $secondary-color;
-      height: 5rem;
-      width: 12rem;
-      z-index: 1;
-      border-radius: 10px;;
+  &__result {
+    background-color: $secondary-color;
+    height: 3.5rem;
+    width: 12rem;
+    z-index: 1;
+    border-radius: 10px;
+  }
+  &__vessel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 35px;
+    gap: 10px;
+    background-color: $primary-color;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    background-color: $primary-color;
+    margin-top: 40px;
+  }
+  &__button {
+    background-color: $secondary-color;
+    border-radius: 4px;
+    padding: 1px 3px;
+    border: none;
+    &--decimal {
+      font-size: large;
+      font-weight: bolder;
     }
-    &__vessel{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-      margin-top: 35px;
-      gap: 10px;
-      background-color: $primary-color;
-    }
-    &__container{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-      gap: 15px;
-      background-color: $primary-color;
-      margin-top: 40px;
-        
-    }
-    &__button {
-          background-color: $secondary-color;
-          border-radius: 4px;
-          padding: 1px 3px;
-          border: none;
-            &--decimal{
-              font-size: large;
-              font-weight: bolder;
-            }
-        }
-  
+  }
 }
 
 @media screen and (min-width: 768px) {
-  
-  .aside{
+  .aside {
     max-width: 28rem;
     margin: 60px;
-    justify-content:space-between;
-      &__button{
-        padding: 7px 13px;
-        font-size: 1.2rem;
-      }
+    justify-content: space-between;
+    &__button {
+      padding: 7px 13px;
+      font-size: 1.2rem;
+    }
   }
-  
+
   .article {
     width: 30rem;
     height: 35rem;
     padding: 35px;
-      &__screen {
-        width: 25.5rem;
-        height: 7rem;
-      }
-      &__vessel {
-        gap: 30px;
-      }
-      &__container{
-        gap: 30px;
-      }
-      &__button{
-        padding: 3px 4px;
-        font-size: 1.2rem;
-      }
+    &__result {
+      width: 25.5rem;
+      height: 7rem;
+    }
+    &__vessel {
+      gap: 30px;
+    }
+    &__container {
+      gap: 30px;
+    }
+    &__button {
+      padding: 3px 4px;
+      font-size: 1.2rem;
+    }
   }
 }
 
-@media screen and (min-width:1024px) {
-  .aside__button:hover{
+@media screen and (min-width: 1024px) {
+  .aside__button:hover {
     font-size: 1.5rem;
     transition: 0.5s;
-  //  add some fun colors when you hover over the fun button
+    //  add some fun colors when you hover over the fun button
   }
-  .article__button:hover{
+  .article__button:hover {
     background-color: $tertiary-color;
     color: $secondary-color;
     transition: 0.3s;
   }
-  
 }
+////////////////////////////////////////////////////////////////
+
+// .main{
+//   width: 100%;
+//   height: 100vh;
+//   background: $tertiary-color;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//     &__calc{
+//       background-color: $primary-color ;
+//       padding: 20px;
+//       border-radius: 8px;
+//     }
+//     &__button{
+//       color: $secondary-color;
+//     }
+// }
