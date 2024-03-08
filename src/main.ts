@@ -52,54 +52,21 @@ if (!result) {
 if (buttons.length === 0) {
   throw new Error("Issues with selector");
 }
-
 const handleClickButton = (event: Event) => {
-  const clickedButton = event.target as HTMLButtonElement;
-  const buttonValue = clickedButton.textContent;
+    const clickedButton = event.target as HTMLButtonElement;
+    const buttonValue = clickedButton.textContent;
 
-  if (buttonValue) {
-    result.value += buttonValue;
-  }
-};
+    if(buttonValue === "="){
+        result.value = eval(result.value)
+    } else if (buttonValue === "C"){
+        result.value = " "
+    } else if (buttonValue === "DEL"){
+        result.value = result.value.slice(0,-1)
+    } else {
+        result.value += buttonValue;
+    } 
+}
 buttons.forEach((button) => {
-  button.addEventListener("click", handleClickButton);
-});
-
-
-const clickClearValue = (event:Event) => {
-    result.value = " "
-}
-
-buttons[5].addEventListener("click",clickClearValue)
-
-
-const clickDelValue = (event: Event) =>{
-    result.value = result.value.slice(0,-4);
-}
-buttons[7].addEventListener("click", clickDelValue)
-
-
-const clickEqualButton = (event: Event) => {
-    result.value = eval(result.value);
-}
-buttons[24].addEventListener("click", clickEqualButton)
-
-////////////Tidy code///////////////
-// const handleClickButton = (event: Event) => {
-//     const clickedButton = event.target as HTMLButtonElement;
-//     const buttonValue = clickedButton.textContent;
-
-//     if(buttonValue === "="){
-//         result.value = calculate(result.value)
-//     } else if (buttonValue === "C"){
-//         result.value = " "
-//     } else if (buttonValue === "DEL"){
-//         result.value = result.value.slice(0,-1)
-//     } else {
-//         result.value += buttonValue;
-//     }
-// }
-// buttons.forEach((button) => {
-//     button.addEventListener("click", handleClickButton);
-//   });
+    button.addEventListener("click", handleClickButton);
+  });
 
