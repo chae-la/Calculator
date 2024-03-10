@@ -1,12 +1,35 @@
+@use "_keyframes.scss";
+@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Silkscreen:wght@400;700&display=swap');
+
 $primary-color: #333;
 $secondary-color: white;
 $tertiary-color: black;
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: $tertiary-color;
+    
+}
+
+.light-mode {
+  background-color: $primary-color;
+  color: $secondary-color;
+  height: 100vh;
+}
+
+.fun-mode {
+  height: 100vh;
+  animation: rainbow 3s linear infinite;
+    .article__button {
+      animation: rainbow-reverse 2s infinite;
+      font-family:"Silkscreen";
+    }
+    .article__result {
+      font-family: "Silkscreen";
+      font-size: 3rem;
+    }
 }
 
 
@@ -19,17 +42,18 @@ $tertiary-color: black;
     padding: 2px 7px;
     font-size: 0.8rem;
     &--light {
-      background-color: $secondary-color;
+      background-color: $tertiary-color;
+      color: $secondary-color
     }
     &--fun {
-      background-color: #eaea66;
-      // add imported fun font family.
+      animation: rainbow 3s infinite;
+      font-family: "Silkscreen";
     }
   }
 }
 
 .article {
-  background-color: $primary-color;
+  background-color: $tertiary-color;
   height: 25rem;
   width: 15rem;
   margin: 45px;
@@ -42,20 +66,22 @@ $tertiary-color: black;
     width: 12rem;
     z-index: 1;
     border-radius: 10px;
+    font-size: 1.5rem;
+    text-align: end;
   }
   &__vessel {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin-top: 35px;
     gap: 10px;
-    background-color: $primary-color;
+    background-color: $tertiary-color;
   }
   &__container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     gap: 15px;
-    background-color: $primary-color;
+    background-color: $tertiary-color;
     margin-top: 40px;
   }
   &__button {
@@ -63,6 +89,7 @@ $tertiary-color: black;
     border-radius: 4px;
     padding: 1px 3px;
     border: none;
+    box-shadow: 2px 2px grey;
     &--decimal {
       font-size: large;
       font-weight: bolder;
@@ -114,21 +141,5 @@ $tertiary-color: black;
     transition: 0.3s;
   }
 }
-////////////////////////////////////////////////////////////////
 
-// .main{
-//   width: 100%;
-//   height: 100vh;
-//   background: $tertiary-color;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//     &__calc{
-//       background-color: $primary-color ;
-//       padding: 20px;
-//       border-radius: 8px;
-//     }
-//     &__button{
-//       color: $secondary-color;
-//     }
-// }
+

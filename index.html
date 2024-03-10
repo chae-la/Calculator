@@ -5,13 +5,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="./src/style.scss" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
   </head>
   <body>
-    <aside class="aside">
-      <button class="aside__button aside__button--light" onclick="myFunction()">Light Mode</button>
-      <button class="aside__button aside__button--fun" onclick="myFunction()">Fun Mode</button>
+    <div class="calculator">
+      <aside class="aside">
+      <button class="aside__button aside__button--light">Dark Mode</button>
+      <button class="aside__button aside__button--fun">Fun Mode</button>
     </aside>
    
     <article class="article">
@@ -22,8 +24,8 @@
       <div class="article__vessel">
         <button class="article__button article__button--operator">√</button>
         <button class="article__button article__button--operator">^2 </button>
-        <button class="article__button article__button--open">(</button>
-        <button class="article__button article__button--close">)</button>
+        <button class="article__button article__button--bracket">(</button>
+        <button class="article__button article__button--bracket">)</button>
         <button class="article__button article__button--operator">%</button>
       </div>
 
@@ -50,6 +52,8 @@
         <button class="article__button article__button--operator">=</button>
       </div>
     </article>
+    </div>
+    
 
   
     <script type="module" src="/src/main.ts"></script>
