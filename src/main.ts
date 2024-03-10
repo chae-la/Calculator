@@ -42,31 +42,48 @@
 //   }
 // }
 
+
+
+
+// const handleClickButton = (event: Event) => {
+//     const clickedButton = event.target as HTMLButtonElement;
+//     const buttonValue = clickedButton.textContent;
+
+//     if(buttonValue === "="){
+//         result.value = eval(result.value) // change this
+//     } else if (buttonValue === "C"){
+//         result.value = " "
+//     } else if (buttonValue === "DEL"){
+//         result.value = result.value.slice(0,-1)
+//     } else {
+//         result.value += buttonValue;
+//     } 
+// }
+// buttons.forEach((button) => {
+//     button.addEventListener("click", handleClickButton);
+//   });
+
+//   const calculate = (event:Event[]) => {
+//     if(buttonNumValue === "+")
+//   }
+
+//change classes
+//store num 1, operators, num 2, 
+
 const result = document.querySelector<HTMLInputElement>(".article__result");
-const buttons =
-  document.querySelectorAll<HTMLButtonElement>(".article__button");
+const operatorButtons = document.querySelectorAll<HTMLButtonElement>(".article__button--operator");
+const numButtons = document.querySelectorAll<HTMLButtonElement>(".article__button--num");
 
 if (!result) {
   throw new Error("Results not found");
 }
-if (buttons.length === 0) {
+if (operatorButtons.length === 0 || numButtons.length === 0) {
   throw new Error("Issues with selector");
-}
-const handleClickButton = (event: Event) => {
+} 
+
+const handleOperatorButtons = (event:Event) => {
     const clickedButton = event.target as HTMLButtonElement;
-    const buttonValue = clickedButton.textContent;
-
-    if(buttonValue === "="){
-        result.value = eval(result.value)
-    } else if (buttonValue === "C"){
-        result.value = " "
-    } else if (buttonValue === "DEL"){
-        result.value = result.value.slice(0,-1)
-    } else {
-        result.value += buttonValue;
-    } 
+    const operatorButtonValue = clickedButton.textContent;
+    result.value = operatorButtonValue;
 }
-buttons.forEach((button) => {
-    button.addEventListener("click", handleClickButton);
-  });
-
+operatorButtons.addEventListener("click", handleOperatorButtons);
