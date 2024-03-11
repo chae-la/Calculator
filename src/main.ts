@@ -51,6 +51,7 @@ const convertButton = document.querySelector<HTMLButtonElement>(
 const equalButton = document.querySelector<HTMLButtonElement>(
   ".article__button--equal"
 );
+const piButton = document.querySelector<HTMLButtonElement>(".article__button--pi");
 
 if (
   !result ||
@@ -73,6 +74,7 @@ if (
 let input: string = "";
 let operator: string = "";
 let results: number | null = null;
+let prevNum: number | null = null;
 
 const handleOperatorButtons = (event: Event) => {
   const clickedButton = event.target as HTMLButtonElement;
@@ -120,10 +122,15 @@ const handleDecimalButton = (event: Event) => {
 };
 decimalButton.addEventListener("click", handleDecimalButton);
 
+const handlePiButton = (event: Event) => {
+  const piButtonValue = Math.PI.toString()
+  result.value += piButtonValue;
+}
+piButton?.addEventListener("click", handlePiButton)
 
 const handleEqualButton = () => {
   const expression = result.value;
-const matches = expression.match(/([+\-x÷2])\s*([\d.]+)/);
+const matches = expression.match(/([+\-x÷])\s*([\d.]+)/);
   
 
   if (!matches) {
@@ -131,6 +138,7 @@ const matches = expression.match(/([+\-x÷2])\s*([\d.]+)/);
       return;
   }
 
+  
   const operator = matches[1];
   const num1 = parseFloat(result.value.substr(0, matches.index));
   const num2 = parseFloat(matches[2]);
@@ -159,6 +167,16 @@ const matches = expression.match(/([+\-x÷2])\s*([\d.]+)/);
           return;
   }
   result.value = calculatedResult.toString();
+  prevNum = calculatedResult;
 };
 
 equalButton.addEventListener("click", handleEqualButton);
+
+const handleAnsButton = () => {
+  if(prevNum !== null) {
+    result.value += prevNum.toString()
+  }
+};
+
+ansButton.addEventListener("click", handleAnsButton);
+
