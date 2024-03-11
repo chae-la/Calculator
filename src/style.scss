@@ -13,11 +13,18 @@ $tertiary-color: black;
     
 }
 
-.light-mode {
+.dark-mode {
   background-color: $primary-color;
   color: $secondary-color;
   height: 100vh;
-}
+    .article__button {
+      background-color: grey;
+    }
+    .article__result {
+      font-size: 3rem;
+      background-color: grey;
+    }
+  }
 
 .fun-mode {
   height: 100vh;
@@ -25,6 +32,8 @@ $tertiary-color: black;
     .article__button {
       animation: rainbow-reverse 2s infinite;
       font-family:"Silkscreen";
+      font-size: 1.2rem;
+      font-weight: 600;
     }
     .article__result {
       font-family: "Silkscreen";
@@ -41,7 +50,7 @@ $tertiary-color: black;
     border: none;
     padding: 2px 7px;
     font-size: 0.8rem;
-    &--light {
+    &--dark {
       background-color: $tertiary-color;
       color: $secondary-color
     }
@@ -66,7 +75,7 @@ $tertiary-color: black;
     width: 12rem;
     z-index: 1;
     border-radius: 10px;
-    font-size: 1.5rem;
+    font-size: 3rem;
     text-align: end;
   }
   &__vessel {

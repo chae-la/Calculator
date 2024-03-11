@@ -4,7 +4,7 @@
     
   }
   20%{
-    background-attachment: orange;
+    background-color: orange;
     
   }
   40% {
@@ -12,15 +12,18 @@
     
   }
   60%{
-    background-attachment: green;
+    background-color: green;
     
   }
   80% {
     background-color: blue;
   
   }
+  99%{
+    background-color: purple;
+  }
   100%{
-    background-attachment: purple;
+    background-color: red;
   }
 }
 
@@ -30,7 +33,7 @@
     
   }
   20%{
-    background-attachment: blue;
+    background-color: blue;
     
   }
   40% {
@@ -38,14 +41,17 @@
     
   }
   60%{
-    background-attachment: yellow;
+    background-color: yellow;
     
   }
   80% {
     background-color: orange;
   
   }
+  99%{
+    background-color: red;
+  }
   100%{
-    background-attachment: red;
+    background-color: purple;
   }
 }

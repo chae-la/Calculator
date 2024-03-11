@@ -64,25 +64,29 @@
 
 //change classes
 //store num 1, operators, num 2,
-const lightMode = document.querySelector<HTMLButtonElement>(".aside__button--light")
-const funMode = document.querySelector<HTMLButtonElement>(".aside__button--fun")
+const darkMode = document.querySelector<HTMLButtonElement>(
+  ".aside__button--dark"
+);
+const funMode = document.querySelector<HTMLButtonElement>(
+  ".aside__button--fun"
+);
 
-if (!lightMode || !funMode){
-  throw new Error ("Does not exist")
+if (!darkMode || !funMode) {
+  throw new Error("Does not exist");
 }
 
 const toggleLightMode = () => {
   const body = document.body;
-  body.classList.toggle("light-mode")
-}
-lightMode.addEventListener("click", toggleLightMode)
+  body.classList.toggle("dark-mode");
+};
+darkMode.addEventListener("click", toggleLightMode);
 
 const toggleFunMode = () => {
   const body = document.body;
-  body.classList.toggle("fun-mode")
-}
+  body.classList.toggle("fun-mode");
+};
 
-funMode.addEventListener("click", toggleFunMode)
+funMode.addEventListener("click", toggleFunMode);
 
 const result = document.querySelector<HTMLInputElement>(".article__result");
 const operatorButtons = document.querySelectorAll<HTMLButtonElement>(
@@ -109,8 +113,18 @@ const ansButton = document.querySelector<HTMLButtonElement>(
 const convertButton = document.querySelector<HTMLButtonElement>(
   ".article__button--convert"
 );
+const equalButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--equal"
+);
 
-if (!result || !clearButton || !delButton || !decimalButton || !ansButton) {
+if (
+  !result ||
+  !clearButton ||
+  !delButton ||
+  !decimalButton ||
+  !ansButton ||
+  !equalButton
+) {
   throw new Error("Results not found");
 }
 if (
@@ -120,6 +134,10 @@ if (
 ) {
   throw new Error("Issues with selector");
 }
+
+let input: string = "";
+let operator: string = "";
+let results: number | null = null;
 
 const handleOperatorButtons = (event: Event) => {
   const clickedButton = event.target as HTMLButtonElement;
@@ -167,4 +185,63 @@ const handleDecimalButton = (event: Event) => {
 };
 decimalButton.addEventListener("click", handleDecimalButton);
 
-// add event handlers for ans and convert
+// const calculateResult = (num1: number, num2: number, op: string)=> {
+//   switch(op) {
+//     case "+":
+//       return num1 + num2;
+//     case "-":
+//       return num1 - num2;
+//     case "x":
+//       return num1 * num2;
+//     case "÷":
+//       if (num2 === 0) {
+//         return NaN;
+//       } else {
+//         return num1 / num2;
+//       }
+//       default:
+//         return NaN;
+//   }
+// }
+
+const handleEqualButton = () => {
+  const expression = result.value;
+const matches = expression.match(/([+\-x÷2])\s*([\d.]+)/);
+  
+
+  if (!matches) {
+      result.value = "Error: Incomplete expression";
+      return;
+  }
+
+  const operator = matches[1];
+  const num1 = parseFloat(result.value.substr(0, matches.index));
+  const num2 = parseFloat(matches[2]);
+  
+  
+  let calculatedResult: number;
+  switch (operator) {
+      case '+':
+          calculatedResult = num1 + num2;
+          break;
+      case '-':
+          calculatedResult = num1 - num2;
+          break;
+      case 'x':
+          calculatedResult = num1 * num2;
+          break;
+      case '÷':
+          if (num2 === 0) {
+              result.value = "Error: Division by zero";
+              return;
+          }
+          calculatedResult = num1 / num2;
+          break;
+      default:
+          result.value = "Error: Invalid operator";
+          return;
+  }
+  result.value = calculatedResult.toString();
+};
+
+equalButton.addEventListener("click", handleEqualButton);
