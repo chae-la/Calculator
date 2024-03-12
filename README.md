@@ -18,7 +18,7 @@
 The classic first project of any developer. This calculator has been built entirely in HTML, SCSS and Typescript and is compatible and responsive in most screen sizes. There are also different theme toggles, between light(default), dark, and "fun"**(color warning)**
 
 ## Calculator Preview
-![An image of the calculator](/src/calculator-image.png "image of calculator")
+![An image of the calculator](/calculator-image.png "image of calculator")
 
 ## Features
 - Basic functions of any calculator; addition, subtraction, division and multiplication
@@ -26,7 +26,7 @@ The classic first project of any developer. This calculator has been built entir
 - Further functions, normally found in more scientific calculators; trigonometric functions
 
 ## Code Snippet
-`const radianToDegree = (): number => {
+```const radianToDegree = (): number => {
   const radians = parseFloat(result.value);
   const degrees = radians * (Math.PI / 180);
   return degrees;
@@ -36,7 +36,7 @@ const handleSinButton = () => {
   const degree = radianToDegree();
   const sinValue = Math.sin(degree);
   result.value = sinValue.toString();
-};`
+};```
 
 In Typescript, the Math.sin, Math.cos and the Math.tan, generally accept radians as its parameters when called. Although radians is the accepted unit to use in pur mathematics and physics, degrees is easier to comprehend and use. 
 ## Setup
@@ -45,10 +45,3 @@ In Typescript, the Math.sin, Math.cos and the Math.tan, generally accept radians
 3. Open a new terminal and type "npm run dev"
 
 
-<!-- a bit more info on the project 
-
-snippet of the code that you like. -->
-
-https://www.markdownguide.org/basic-syntax/
-
-https://bulldogjob.com/readme/how-to-write-a-good-readme-for-your-github-project
