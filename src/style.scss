@@ -21,7 +21,7 @@ $tertiary-color: black;
       background-color: grey;
     }
     .article__result {
-      font-size: 3rem;
+      font-size: 1rem;
       background-color: grey;
     }
   }
@@ -32,12 +32,13 @@ $tertiary-color: black;
     .article__button {
       animation: rainbow-reverse 2s infinite;
       font-family:"Silkscreen";
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 300;
+      
     }
     .article__result {
       font-family: "Silkscreen";
-      font-size: 3rem;
+      font-size: 2rem;
     }
 }
 
@@ -75,15 +76,21 @@ $tertiary-color: black;
     width: 12rem;
     z-index: 1;
     border-radius: 10px;
-    font-size: 3rem;
+    font-size: 1rem;
     text-align: end;
   }
   &__vessel {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    margin-top: 35px;
+    margin-top: 20px;
     gap: 10px;
     background-color: $tertiary-color;
+  }
+  &__receptacle{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px
   }
   &__container {
     display: grid;
@@ -91,7 +98,7 @@ $tertiary-color: black;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     gap: 15px;
     background-color: $tertiary-color;
-    margin-top: 40px;
+    margin-top: 30px;
   }
   &__button {
     background-color: $secondary-color;
@@ -124,25 +131,57 @@ $tertiary-color: black;
     &__result {
       width: 25.5rem;
       height: 7rem;
+      font-size: 2rem
     }
     &__vessel {
       gap: 30px;
     }
+    &__receptacle{
+      gap:20px;
+    }
     &__container {
-      gap: 30px;
+      gap: 20px;
     }
     &__button {
       padding: 3px 4px;
       font-size: 1.2rem;
     }
   }
+  .dark-mode {
+    background-color: $primary-color;
+    color: $secondary-color;
+    height: 100vh;
+      .article__button {
+        background-color: grey;
+      }
+      .article__result {
+        font-size: 2rem;
+        background-color: grey;
+      }
+    }
+  
+  .fun-mode {
+    height: 100vh;
+    animation: rainbow 3s linear infinite;
+      .article__button {
+        animation: rainbow-reverse 2s infinite;
+        font-family:"Silkscreen";
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .article__result {
+        font-family: "Silkscreen";
+        font-size: 2rem;
+      }
+  }
+  
 }
 
 @media screen and (min-width: 1024px) {
   .aside__button:hover {
     font-size: 1.5rem;
     transition: 0.5s;
-    //  add some fun colors when you hover over the fun button
+    
   }
   .article__button:hover {
     background-color: $tertiary-color;

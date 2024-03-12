@@ -1,4 +1,4 @@
-
+// Code for Theme Changes
 const darkMode = document.querySelector<HTMLButtonElement>(
   ".aside__button--dark"
 );
@@ -14,14 +14,15 @@ const toggleLightMode = () => {
   const body = document.body;
   body.classList.toggle("dark-mode");
 };
-darkMode.addEventListener("click", toggleLightMode);
 
 const toggleFunMode = () => {
   const body = document.body;
   body.classList.toggle("fun-mode");
 };
-
+darkMode.addEventListener("click", toggleLightMode);
 funMode.addEventListener("click", toggleFunMode);
+
+// Functionality for Calculator
 
 const result = document.querySelector<HTMLInputElement>(".article__result");
 const operatorButtons = document.querySelectorAll<HTMLButtonElement>(
@@ -51,7 +52,18 @@ const convertButton = document.querySelector<HTMLButtonElement>(
 const equalButton = document.querySelector<HTMLButtonElement>(
   ".article__button--equal"
 );
-const piButton = document.querySelector<HTMLButtonElement>(".article__button--pi");
+const piButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--pi"
+);
+const squareButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--square"
+);
+const rootButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--root"
+);
+const percentButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--percent"
+);
 
 if (
   !result ||
@@ -59,7 +71,10 @@ if (
   !delButton ||
   !decimalButton ||
   !ansButton ||
-  !equalButton
+  !equalButton ||
+  !squareButton ||
+  !rootButton ||
+  !percentButton
 ) {
   throw new Error("Results not found");
 }
@@ -82,101 +97,114 @@ const handleOperatorButtons = (event: Event) => {
   return (result.value += operatorButtonValue);
 };
 
-operatorButtons.forEach((button) => {
-  button.addEventListener("click", handleOperatorButtons);
-});
-
 const handleNumButtons = (event: Event) => {
   const clickedButton = event.target as HTMLButtonElement;
   const numButtonValue = clickedButton.textContent;
   return (result.value += numButtonValue);
 };
-numButtons.forEach((button) => {
-  button.addEventListener("click", handleNumButtons);
-});
 
 const handleBracketButtons = (event: Event) => {
   const clickedButton = event.target as HTMLButtonElement;
   const bracketButtonValue = clickedButton.textContent;
   return (result.value += bracketButtonValue);
 };
-bracketButtons.forEach((button) => {
-  button.addEventListener("click", handleBracketButtons);
-});
 
 const handleClearButton = () => {
   return (result.value = " ");
 };
 
-clearButton.addEventListener("click", handleClearButton);
-
 const handleDelButton = () => {
   result.value = result.value.slice(0, -1);
 };
-delButton.addEventListener("click", handleDelButton);
 
 const handleDecimalButton = (event: Event) => {
   const clickedButton = event.target as HTMLButtonElement;
   const decimalButtonValue = clickedButton.textContent;
   return (result.value += decimalButtonValue);
 };
-decimalButton.addEventListener("click", handleDecimalButton);
 
-const handlePiButton = (event: Event) => {
-  const piButtonValue = Math.PI.toString()
+const handlePiButton = () => {
+  const piButtonValue = Math.PI.toString();
   result.value += piButtonValue;
-}
-piButton?.addEventListener("click", handlePiButton)
+};
+
+const handleSquareButton = () => {
+  const currentValue = parseFloat(result.value);
+  const squared = currentValue * 2;
+  result.value = squared.toString();
+};
+
+const handleRootButton = () => {
+  const currentValue = parseFloat(result.value);
+  const root = Math.sqrt(currentValue);
+  result.value = root.toString();
+};
+
+const handlePercentButton = () => {
+  const currentValue = parseFloat(result.value);
+  const percent = currentValue / 100;
+  result.value = percent.toString();
+};
+percentButton.addEventListener("click", handlePercentButton);
 
 const handleEqualButton = () => {
   const expression = result.value;
-const matches = expression.match(/([+\-x÷])\s*([\d.]+)/);
-  
-
+  const matches = expression.match(/([+\-x÷])\s*([\d.]+)/);
   if (!matches) {
-      result.value = "Error: Incomplete expression";
-      return;
+    result.value = "Error: Incomplete expression";
+    return;
   }
 
-  
   const operator = matches[1];
   const num1 = parseFloat(result.value.substr(0, matches.index));
   const num2 = parseFloat(matches[2]);
-  
-  
+
   let calculatedResult: number;
   switch (operator) {
-      case '+':
-          calculatedResult = num1 + num2;
-          break;
-      case '-':
-          calculatedResult = num1 - num2;
-          break;
-      case 'x':
-          calculatedResult = num1 * num2;
-          break;
-      case '÷':
-          if (num2 === 0) {
-              result.value = "Error: Division by zero";
-              return;
-          }
-          calculatedResult = num1 / num2;
-          break;
-      default:
-          result.value = "Error: Invalid operator";
-          return;
+    case "+":
+      calculatedResult = num1 + num2;
+      break;
+    case "-":
+      calculatedResult = num1 - num2;
+      break;
+    case "x":
+      calculatedResult = num1 * num2;
+      break;
+    case "÷":
+      if (num2 === 0) {
+        result.value = "Error: Division by zero";
+        return;
+      }
+      calculatedResult = num1 / num2;
+      break;
+    default:
+      result.value = "Error: Invalid operator";
+      return;
   }
   result.value = calculatedResult.toString();
   prevNum = calculatedResult;
 };
-
-equalButton.addEventListener("click", handleEqualButton);
-
 const handleAnsButton = () => {
-  if(prevNum !== null) {
-    result.value += prevNum.toString()
+  if (prevNum !== null) {
+    result.value += prevNum.toString();
   }
 };
 
+operatorButtons.forEach((button) => {
+  button.addEventListener("click", handleOperatorButtons);
+});
+equalButton.addEventListener("click", handleEqualButton);
 ansButton.addEventListener("click", handleAnsButton);
+piButton?.addEventListener("click", handlePiButton);
+decimalButton.addEventListener("click", handleDecimalButton);
+delButton.addEventListener("click", handleDelButton);
+clearButton.addEventListener("click", handleClearButton);
+bracketButtons.forEach((button) => {
+  button.addEventListener("click", handleBracketButtons);
+});
+numButtons.forEach((button) => {
+  button.addEventListener("click", handleNumButtons);
+});
+squareButton.addEventListener("click", handleSquareButton);
+rootButton.addEventListener("click", handleRootButton);
 
