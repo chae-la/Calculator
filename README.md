@@ -36,8 +36,8 @@ const handleSinButton = () => {
   const degree = radianToDegree();
   const sinValue = Math.sin(degree);
   result.value = sinValue.toString();
-};```
-
+};
+```
 In Typescript, the Math.sin, Math.cos and the Math.tan, generally accept radians as its parameters when called. Although radians is the accepted unit to use in pur mathematics and physics, degrees is easier to comprehend and use. 
 ## Setup
 1. Clone this repository to your local machine.
