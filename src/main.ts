@@ -64,6 +64,24 @@ const rootButton = document.querySelector<HTMLButtonElement>(
 const percentButton = document.querySelector<HTMLButtonElement>(
   ".article__button--percent"
 );
+const sinButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--sin"
+);
+const cosButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--cos"
+);
+const tanButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--tan"
+);
+const asinButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--asin"
+);
+const acosButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--acos"
+);
+const atanButton = document.querySelector<HTMLButtonElement>(
+  ".article__button--atan"
+);
 
 if (
   !result ||
@@ -74,7 +92,13 @@ if (
   !equalButton ||
   !squareButton ||
   !rootButton ||
-  !percentButton
+  !percentButton ||
+  !sinButton ||
+  !asinButton ||
+  !cosButton ||
+  !acosButton ||
+  !tanButton ||
+  !atanButton
 ) {
   throw new Error("Results not found");
 }
@@ -130,7 +154,7 @@ const handlePiButton = () => {
 
 const handleSquareButton = () => {
   const currentValue = parseFloat(result.value);
-  const squared = currentValue * 2;
+  const squared = currentValue * currentValue;
   result.value = squared.toString();
 };
 
@@ -145,7 +169,51 @@ const handlePercentButton = () => {
   const percent = currentValue / 100;
   result.value = percent.toString();
 };
-percentButton.addEventListener("click", handlePercentButton);
+
+const radianToDegree = (): number => {
+  const radians = parseFloat(result.value);
+  const degrees = radians * (Math.PI / 180);
+  return degrees;
+};
+
+const handleSinButton = () => {
+  const degree = radianToDegree();
+  const sinValue = Math.sin(degree);
+  result.value = sinValue.toString();
+};
+
+const handleCosButton = () => {
+  const degree = radianToDegree();
+  const cosValue = Math.cos(degree);
+  result.value = cosValue.toString();
+};
+
+const handleTanButton = () => {
+  const degree = radianToDegree();
+  const tanValue = Math.tan(degree);
+  result.value = tanValue.toString();
+};
+
+const handleAsinButton = () => {
+  const value = parseFloat(result.value);
+  const asinValueRadians = Math.asin(value);
+  const asinValueDegree = asinValueRadians * (180 / Math.PI);
+  result.value = asinValueDegree.toString();
+};
+
+const handleAcosButton = () => {
+  const value = parseFloat(result.value);
+  const acosValueRadians = Math.acos(value);
+  const acosValueDegree = acosValueRadians * (180 / Math.PI);
+  result.value = acosValueDegree.toString();
+};
+
+const handleAtanButton = () => {
+  const value = parseFloat(result.value);
+  const atanValueRadians = Math.atan(value);
+  const atanValueDegree = atanValueRadians * (180 / Math.PI);
+  result.value = atanValueDegree.toString();
+};
 
 const handleEqualButton = () => {
   const expression = result.value;
@@ -207,4 +275,10 @@ numButtons.forEach((button) => {
 });
 squareButton.addEventListener("click", handleSquareButton);
 rootButton.addEventListener("click", handleRootButton);
-
+percentButton.addEventListener("click", handlePercentButton);
+sinButton.addEventListener("click", handleSinButton);
+cosButton.addEventListener("click", handleCosButton);
+tanButton.addEventListener("click", handleTanButton);
+asinButton.addEventListener("click", handleAsinButton);
+acosButton.addEventListener("click", handleAcosButton);
+atanButton.addEventListener("click", handleAtanButton);
