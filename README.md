@@ -18,7 +18,7 @@
 The classic first project of any developer. This calculator has been built entirely in HTML, SCSS and Typescript and is compatible and responsive in most screen sizes. There are also different theme toggles, between light(default), dark, and "fun"**(color warning)**
 
 ## Calculator Preview
-![An image of the calculator](/src/calculator-image.png "image of calculator)
+![An image of the calculator](/src/calculator-image.png "image of calculator")
 
 ## Features
 - Basic functions of any calculator; addition, subtraction, division and multiplication
