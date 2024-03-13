@@ -1,28 +1,23 @@
 @keyframes rainbow {
   0% {
     background-color: red;
-    
   }
-  20%{
+  20% {
     background-color: orange;
-    
   }
   40% {
     background-color: yellow;
-    
   }
-  60%{
+  60% {
     background-color: green;
-    
   }
   80% {
     background-color: blue;
-  
   }
-  99%{
+  99% {
     background-color: purple;
   }
-  100%{
+  100% {
     background-color: red;
   }
 }
@@ -30,29 +25,23 @@
 @keyframes rainbow-reverse {
   0% {
     background-color: purple;
-    
   }
-  20%{
+  20% {
     background-color: blue;
-    
   }
   40% {
     background-color: green;
-    
   }
-  60%{
+  60% {
     background-color: yellow;
-    
   }
   80% {
     background-color: orange;
-  
   }
-  99%{
+  99% {
     background-color: red;
   }
-  100%{
+  100% {
     background-color: purple;
   }
 }
-
